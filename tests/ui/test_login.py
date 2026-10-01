@@ -26,3 +26,8 @@ def test_login_invalid_credentials(login_page, registered_user):
 
     expect(login_page.get_error_locator()).to_be_visible()
     expect(login_page.get_logged_in_locator()).to_have_count(0)
+
+@pytest.mark.ui
+def test_invalid_email(login_page):
+    login_page.login("nobody_12345@example.com", "SomePassword123")
+    expect(login_page.get_error_locator()).to_be_visible()
