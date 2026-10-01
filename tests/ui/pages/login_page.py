@@ -14,3 +14,7 @@ class LoginPage:
     def goto(self):
         self.page.goto("https://automationexercise.com/login")
 
+
+    # Header item shown only after a successful login: "Logged in as <name>"
+    def get_logged_in_locator(self):
+        return self.page.locator(".shop-menu a", has_text="Logged in as")
